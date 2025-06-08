@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=" Daniel Baez - Chief Technology Officer. Over 16+ years of experience in technology leadership, digital transformation, and innovative problem-solving. Insurance technology specialist based in Miami, Florida.">
+    <meta name="description" content="Daniel Baez - Chief Technology Officer. Over 16+ years of experience in technology leadership, digital transformation, and innovative problem-solving. Insurance technology specialist based in Miami, Florida.">
     <title>Daniel Baez Personal Page</title>
     <style>
         :root {
@@ -13,6 +13,7 @@
             --light-gray: #f5f5f5;
             --medium-gray: #e0e0e0;
             --white: #fff;
+            --sidebar-bg: #fafafa;
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
@@ -27,88 +28,84 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--white);
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            display: flex;
+            min-height: 100vh;
         }
         
-        header {
-            padding: 40px 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--medium-gray);
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--medium-gray);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 40px 30px;
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            margin-bottom: 50px;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: 800;
             color: var(--secondary-color);
+            margin-bottom: 10px;
         }
         
-        nav ul {
-            display: flex;
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+        
+        .nav-menu {
             list-style: none;
         }
         
-        nav ul li {
-            margin-left: 20px;
+        .nav-menu li {
+            margin-bottom: 8px;
         }
         
-        nav ul li a {
+        .nav-menu li a {
+            display: block;
+            padding: 12px 16px;
             text-decoration: none;
-            color: var(--secondary-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-        
-        .hero {
-            padding: 80px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-        
-        .hero p {
-            font-size: 18px;
             color: var(--text-color);
-            max-width: 700px;
-            margin-bottom: 30px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        .cta-button {
-            display: inline-block;
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
         }
         
-        .cta-button:hover {
-            background-color: #003D68;
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 40px 60px;
+            max-width: calc(100vw - 300px);
+        }
+        
+        .content-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 20px;
         }
         
         .section-title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
-            margin: 60px 0 30px;
+            margin-bottom: 30px;
             color: var(--secondary-color);
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         .section-title::after {
@@ -121,141 +118,144 @@
             background-color: var(--primary-color);
         }
         
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 80px;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--text-color);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            background-color: #002a4a;
+            transform: translateY(-2px);
+        }
+        
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: var(--medium-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-content h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        /* Projects Section */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
         
         .project-card {
             background-color: var(--white);
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--medium-gray);
         }
         
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
         }
         
         .project-image {
             width: 100%;
             height: 200px;
-            background-color: var(--medium-gray);
+            background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-color);
+            font-weight: 500;
         }
         
         .project-content {
-            padding: 20px;
+            padding: 24px;
         }
         
         .project-title {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--secondary-color);
         }
         
         .project-description {
             color: var(--text-color);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 15px;
+            line-height: 1.6;
         }
         
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 15px;
         }
         
         .tech-tag {
             background-color: var(--light-gray);
             color: var(--secondary-color);
-            padding: 4px 10px;
-            border-radius: 4px;
+            padding: 6px 12px;
+            border-radius: 16px;
             font-size: 13px;
             font-weight: 500;
         }
         
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            margin: 40px 0;
-            align-items: start;
-        }
-        
-        .profile-image {
-            width: 75%;
-            aspect-ratio: 1;
-            background-color: var(--medium-gray);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-color);
-        }
-        
-        .about-content h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-        
-        .about-content p {
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
-        
-        .skills {
-            margin: 40px 0;
-        }
-        
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            background-color: var(--light-gray);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .skill-category h4 {
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-            font-size: 18px;
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .skill-list li::before {
-            content: '•';
-            margin-right: 8px;
-            color: var(--primary-color);
-        }
-        
-        .experience {
-            margin: 40px 0;
-        }
-        
+        /* Timeline Styles */
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -274,90 +274,98 @@
         .timeline-item {
             position: relative;
             margin-bottom: 40px;
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--medium-gray);
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: 30px;
             left: -38px;
             width: 14px;
             height: 14px;
             border-radius: 50%;
             background-color: var(--primary-color);
             border: 4px solid var(--white);
+            box-shadow: 0 0 0 2px var(--medium-gray);
         }
         
         .timeline-date {
             font-size: 14px;
-            color: var(--text-color);
-            margin-bottom: 5px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 600;
         }
         
         .timeline-title {
             font-size: 20px;
             font-weight: 700;
             color: var(--secondary-color);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
         
         .timeline-company {
             font-size: 16px;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 500;
         }
         
         .timeline-description {
             color: var(--text-color);
+            line-height: 1.6;
         }
         
+        /* Contact Section */
         .contact {
-            margin: 60px 0;
             background-color: var(--light-gray);
             padding: 40px;
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .contact p {
+            margin-bottom: 30px;
+            font-size: 16px;
         }
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         
         .contact-icon {
-            flex: 0 0 40px;
-            margin-right: 1rem;
+            flex: 0 0 50px;
+            margin-right: 16px;
         }
 
         .contact-icon img {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
         }
 
-        .contact-info {
-            flex: 1;
-        }
-
         .contact-info h3 {
-            margin: 0 0 0.25rem 0;
-        }
-        
-        .contact-info h4 {
             font-size: 18px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: var(--secondary-color);
         }
         
-        .contact-info p, .contact-info a {
+        .contact-info a {
             color: var(--text-color);
             text-decoration: none;
             transition: color 0.3s;
@@ -367,187 +375,318 @@
             color: var(--primary-color);
         }
         
-        footer {
+        /* Footer */
+        .footer {
             text-align: center;
             padding: 40px 0;
             border-top: 1px solid var(--medium-gray);
             color: var(--text-color);
+            margin-top: 40px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 250px;
+            }
+            
+            .main-content {
+                margin-left: 250px;
+                padding: 30px 40px;
+                max-width: calc(100vw - 250px);
+            }
         }
         
         @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+                max-width: 100vw;
+            }
+            
             .hero h1 {
                 font-size: 36px;
             }
             
             .about {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             .profile-image {
-                max-width: 300px;
-                margin: 0 auto 30px;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            /* Mobile menu button */
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 101;
+                background: var(--primary-color);
+                color: white;
+                border: none;
+                padding: 12px;
+                border-radius: 6px;
+                cursor: pointer;
             }
         }
         
-        @media (max-width: 480px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            nav ul li:first-child {
-                margin-left: 0;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Daniel Baez</div>
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Daniel Baez</div>
+            <div class="subtitle">Chief Technology Officer</div>
+        </div>
         <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-menu">
+                <li><a href="#hero" onclick="setActive(this)">Home</a></li>
+                <li><a href="#about" onclick="setActive(this)">About</a></li>
+                <li><a href="#projects" onclick="setActive(this)">Projects</a></li>
+                <li><a href="#experience" onclick="setActive(this)">Experience</a></li>
+                <li><a href="#certifications" onclick="setActive(this)">Certifications</a></li>
+                <li><a href="#education" onclick="setActive(this)">Education</a></li>
+                <li><a href="#contact" onclick="setActive(this)">Contact</a></li>
             </ul>
         </nav>
-    </header>
+    </aside>
     
-    <h2 class="section-title" id="about">About Me</h2>
-    <div class="about">
-        <div class="profile-image">
-            <img src="assets/images/headshot.png" alt="Headshot of Daniel Baez" style="width: 100%; height: auto; border-radius: 2px;">
-        </div>
-        <div class="about-content">
-            <p>Hello, I'm Daniel Baez — a technology enthusiast and CTO passionate about efficiency in digital transformation. With an analytical mindset and methodical approach to problem-solving, I've built my career on viewing technological challenges from multiple perspectives to deliver strategic solutions.</p>
-            <p>I specialize in IT Strategy development and Project Management, translating complex business requirements into actionable technology roadmaps. My professional focus centers on automation and IT integrations, where I continually seek opportunities to streamline operations and create powerful synergies between systems.</p>
-            <p>Beyond the professional realm, my interests in reading, traveling, and exploring emerging technologies continuously inform my approach to work. This balanced perspective drives me to seek innovative solutions while remaining adaptable to evolving methodologies.</p>
-        </div>
-    </div>
-    
-    <h2 class="section-title" id="projects">Featured Projects</h2>
-    <div class="projects">
-        <div class="project-card">
-            <div class="project-image">Project Image 1</div>
-            <div class="project-content">
-                <h3 class="project-title">Project Name</h3>
-                <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">AWS</span>
-                </div>
-            </div>
-        </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="content-section hero">
+            <h1>Technology Leader & Innovation Driver</h1>
+            <p>With over 16 years of experience in technology leadership, I specialize in digital transformation and strategic solutions that drive business growth. Currently serving as CTO at Insurance Nation, I'm passionate about creating efficient, scalable systems that make a real impact.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </section>
         
-        <div class="project-card">
-            <div class="project-image">Project Image 2</div>
-            <div class="project-content">
-                <h3 class="project-title">Project Name</h3>
-                <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">MySQL</span>
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about">
+                <div class="profile-image">
+                    <img src="assets/images/headshot.png" alt="Headshot of Daniel Baez">
+                </div>
+                <div class="about-content">
+                    <p>Hello, I'm Daniel Baez — a technology enthusiast and CTO passionate about efficiency in digital transformation. With an analytical mindset and methodical approach to problem-solving, I've built my career on viewing technological challenges from multiple perspectives to deliver strategic solutions.</p>
+                    <p>I specialize in IT Strategy development and Project Management, translating complex business requirements into actionable technology roadmaps. My professional focus centers on automation and IT integrations, where I continually seek opportunities to streamline operations and create powerful synergies between systems.</p>
+                    <p>Beyond the professional realm, my interests in reading, traveling, and exploring emerging technologies continuously inform my approach to work. This balanced perspective drives me to seek innovative solutions while remaining adaptable to evolving methodologies.</p>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <div class="project-card">
-            <div class="project-image">Project Image 3</div>
-            <div class="project-content">
-                <h3 class="project-title">Project Name</h3>
-                <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">PostgreSQL</span>
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-image">Project Image 1</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Project Name</h3>
+                        <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">Project Image 2</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Project Name</h3>
+                        <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">Project Image 3</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Project Name</h3>
+                        <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+            
+        <!-- Experience Section -->
+        <section id="experience" class="content-section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2009 - Present</div>
+                    <h3 class="timeline-title">Chief Technology Officer (CTO)</h3>
+                    <div class="timeline-company">Insurance Nation</div>
+                    <p class="timeline-description">Describe your role, responsibilities, and key achievements. Include specific projects you worked on and technologies you used. Focus on quantifiable results and the impact of your work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="content-section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 2024</div>
+                    <h3 class="timeline-title">GitHub Foundations</h3>
+                    <div class="timeline-company">GitHub</div>
+                    <p class="timeline-description">Comprehensive knowledge of Git version control system and GitHub collaborative workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="content-section">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2022 - Present</div>
+                    <h3 class="timeline-title">Master of Science - MS, Computer Science</h3>
+                    <div class="timeline-company">Georgia Institute of Technology</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2003 - Jun 2008</div>
+                    <h3 class="timeline-title">Bachelor of Engineering - BE, Telecommunications Engineering</h3>
+                    <div class="timeline-company">Universidad Tecnológica de La Habana "José Antonio Echeverría", CUJAE</div>
+                </div>     
+            </div>
+        </section>
         
-    <h2 class="section-title" id="experience">Professional Experience</h2>
-    <div class="experience">
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">2009 - Present</div>
-                <h3 class="timeline-title">Chief Technology Officer (CTO)</h3>
-                <div class="timeline-company">Insurance Nation</div>
-                <p class="timeline-description">Describe your role, responsibilities, and key achievements. Include specific projects you worked on and technologies you used. Focus on quantifiable results and the impact of your work.</p>
-            </div>
-        </div>
-    </div>
-
-    <h2 class="section-title" id="certifications">Certifications</h2>
-    <div class="certifications">
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Apr 2024</div>
-                <h3 class="timeline-title">GitHub Foundations</h3>
-                <div class="timeline-company">GitHub</div>
-                <p class="timeline-description">Comprehensive knowledge of Git version control system and GitHub collaborative workflows.</p>
-            </div>
-        </div>
-    </div>
-
-
-        <h2 class="section-title" id="education">Education</h2>
-    <div class="education">
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Jan 2022 - Present</div>
-                <h3 class="timeline-title">Master of Science - MS, Computer Science</h3>
-                <div class="timeline-company">Georgia Institute of Technology</div>
-            </div>
-        <div class="timeline-item">
-                <div class="timeline-date">Sep 2003 - Jun 2008</div>
-                <h3 class="timeline-title">Bachelor of Engineering - BE, Telecommunications Engineering</h3>
-                <div class="timeline-company">Universidad Tecnológica de La Habana "José Antonio Echeverría", CUJAE</div>
-            </div>     
-            
-        </div>
-    </div>
-    
-    <h2 class="section-title" id="contact">Get in Touch</h2>
-    <div class="contact">
-        <p>Interested in working together? Feel free to reach out using any of the contact methods below.</p>
-        <div class="contact-grid"> 
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <img src="assets/images/linkedin.png" alt="Linkedin icon">
-                </div>
-                <div class="contact-info">
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/danielbaezpi/" target="_blank">linkedin.com/in/danielbaezpi</a>
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact">
+                <p>Interested in working together? Feel free to reach out using any of the contact methods below.</p>
+                <div class="contact-grid"> 
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <img src="assets/images/linkedin.png" alt="Linkedin icon">
+                        </div>
+                        <div class="contact-info">
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/danielbaezpi/" target="_blank">linkedin.com/in/danielbaezpi</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <img src="assets/images/github.png" alt="GitHub icon">
+                        </div>    
+                        <div class="contact-info">
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/danbaez" target="_blank">github.com/danbaez</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Daniel Baez. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Navigation functionality
+        function setActive(clickedLink) {
+            // Remove active class from all links
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
             
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <img src="assets/images/github.png" alt="GitHub icon">
-                </div>    
-                <div class="contact-info">
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/danbaez" target="_blank">github.com/danbaez</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 Daniel Baez. All rights reserved.</p>
-    </footer>
+            // Add active class to clicked link
+            clickedLink.classList.add('active');
+            
+            // Close mobile menu if open
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        }
+        
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.getElementById('sidebar');
+                const menuBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                    sidebar.classList.remove('open');
+                }
+            }
+        });
+        
+        // Highlight active section based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Set initial active state
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.nav-menu a[href="#hero"]').classList.add('active');
+        });
+    </script>
 </body>
 </html>
