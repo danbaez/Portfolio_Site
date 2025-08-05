@@ -215,13 +215,46 @@
         
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 150px;
             background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-color);
             font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-image::after {
+            content: '🔍 Click to view';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 61, 104, 0.9);
+            color: white;
+            padding: 8px;
+            font-size: 12px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-image:hover::after {
+            transform: translateY(0);
         }
         
         .project-content {
@@ -255,6 +288,77 @@
             border-radius: 16px;
             font-size: 13px;
             font-weight: 500;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+        
+        .modal-caption {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            margin-top: 10px;
+            border-radius: 4px;
         }
         
         /* Timeline Styles */
@@ -433,6 +537,16 @@
                 font-size: 28px;
             }
             
+            .modal-content {
+                max-width: 95%;
+                max-height: 85%;
+            }
+            
+            .modal-close {
+                top: -30px;
+                font-size: 28px;
+            }
+            
             /* Mobile menu button */
             .mobile-menu-btn {
                 display: block;
@@ -499,7 +613,7 @@
                     <img src="assets/images/headshot.png" alt="Headshot of Daniel Baez">
                 </div>
                 <div class="about-content">
-                    <p>Hello, I'm Daniel Baez — a technology enthusiast passionate about efficiency in digital transformation. With an analytical mindset and a methodical approach to problem-solving, I’ve built my career on viewing technological challenges from multiple perspectives to deliver strategic solutions.</p>
+                    <p>Hello, I'm Daniel Baez — a technology enthusiast passionate about efficiency in digital transformation. With an analytical mindset and a methodical approach to problem-solving, I've built my career on viewing technological challenges from multiple perspectives to deliver strategic solutions.</p>
                     <p>I specialize in IT strategy development and project management, translating complex business requirements into actionable technology roadmaps. My professional focus centers on automation and IT integrations, where I continually seek opportunities to streamline operations and create powerful synergies between systems.</p>
                     <p>Beyond the professional realm, my interests in reading, traveling, and exploring emerging technologies continually inform my approach to work. This balanced perspective drives me to pursue innovative solutions while remaining adaptable to evolving methodologies.</p>
                 </div>
@@ -511,41 +625,42 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects">
                 <div class="project-card">
-                    <div class="project-image">Project Image 1</div>
+                    <div class="project-image" onclick="openModal('assets/images/ibinderbook.png', 'iBinderbook Agency Management / CRM System')">
+                        <img src="assets/images/ibinderbook.png" alt="iBinderbook Project Image">
+                    </div>
                     <div class="project-content">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
-                        <!-- <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">AWS</span>
-                        </div> -->
+                        <h3 class="project-title">iBinderbook Agency Management / CRM System</h3>
+                        <p class="project-description">Spearheaded the creation of a custom agency management and CRM system, integrating policy management, lead tracking, and workflow automation to improve sales efficiency and client servicing.</p>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">Project Image 2</div>
+                    <div class="project-image" onclick="openModal('assets/images/pvu.png', 'AI-Powered Underwriting Automation')">
+                        <img src="assets/images/pvu.png" alt="AI-Powered Underwriting Project Image">
+                    </div>
                     <div class="project-content">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
-                        <!-- <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                        </div> -->
+                        <h3 class="project-title">AI-Powered Underwriting Automation</h3>
+                        <p class="project-description">Designed and implemented AI-powered underwriting workflows, automating risk assessments, document analysis, and decision support to reduce processing times and improve accuracy.</p>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">Project Image 3</div>
+                    <div class="project-image" onclick="openModal('assets/images/dealerservice.png', 'Dealer Verification Service Department')">
+                        <img src="assets/images/dealerservice.png" alt="Dealer Service Project Image">
+                    </div>
                     <div class="project-content">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">A brief description of the project, highlighting your role, the challenges you faced, and how you overcame them. Keep it concise but informative.</p>
-                        <!-- <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div> -->
+                        <h3 class="project-title">Dealer Verification Service Department</h3>
+                        <p class="project-description">Directed the development and optimization of an online verification platform for dealers, enhancing operational accuracy, compliance, and customer trust through streamlined digital processes.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" onclick="openModal('assets/images/communication.png', 'Communication Platforms with AI Integration')">
+                        <img src="assets/images/communication.png" alt="Communication Platforms Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Communication Platforms with AI Integration</h3>
+                        <p class="project-description">Oversaw the configuration, maintenance, and AI-driven enhancement of enterprise communication tools, enabling smarter call routing, automated responses, and improved client interaction.</p>
                     </div>
                 </div>
             </div>
@@ -637,6 +752,15 @@
         </footer>
     </main>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
     <script>
         // Navigation functionality
         function setActive(clickedLink) {
@@ -668,6 +792,45 @@
                 if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
                     sidebar.classList.remove('open');
                 }
+            }
+        });
+        
+        // Modal functionality
+        function openModal(imageSrc, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            modalImage.src = imageSrc;
+            modalCaption.textContent = caption;
+            
+            modal.style.display = 'flex';
+            
+            // Trigger animation
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            
+            modal.classList.remove('show');
+            
+            // Hide modal after animation
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
             }
         });
         
