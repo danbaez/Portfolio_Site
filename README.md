@@ -2,7 +2,7 @@
 
 **Chief Technology Officer | Technology Leader & Innovation Driver**
 
-Welcome to my personal GitHub page! I'm Daniel Baez, a technology enthusiast and CTO with over 16 years of experience leading digital transformation initiatives and building scalable, efficient systems. Currently serving as CTO at **Insurance Nation**, I specialize in IT strategy, automation, and system integration that powers real business growth.
+Welcome to my personal page! I'm Daniel Baez, a technology enthusiast and CTO with over 17 years of experience leading digital transformation initiatives and building scalable, efficient systems. Currently serving as CTO at **Insurance Nation**, I specialize in IT strategy, automation, and system integration that powers real business growth.
 
 ---
 
@@ -26,4 +26,4 @@ I'm always open to meaningful conversations and collaborative opportunities. Fee
 
 ---
 
-© 2025 Daniel Baez. All rights reserved.
+© 2026 Daniel Baez. All rights reserved.
