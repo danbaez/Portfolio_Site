@@ -5,24 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Baez — Technology Executive</title>
   <meta name="description" content="Daniel Baez — CTO and technology executive focused on transforming legacy operations into intelligent, scalable systems through automation, cloud, and applied AI." />
+  <meta name="author" content="Daniel Baez" />
+  <link rel="canonical" href="https://danielbz.com/" />
+  <meta name="theme-color" content="#F9F9F8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0C0C0D" media="(prefers-color-scheme: dark)" />
+
+  <!-- Open Graph — controls how the page renders when shared (LinkedIn, Slack, iMessage) -->
+  <meta property="og:type"        content="profile" />
+  <meta property="og:site_name"   content="Daniel Baez" />
+  <meta property="og:locale"      content="en_US" />
+  <meta property="og:url"         content="https://danielbz.com/" />
+  <meta property="og:title"       content="Daniel Baez — Technology Executive" />
+  <meta property="og:description" content="CTO and technology leader modernizing complex operations through automation, scalable architecture, and applied AI." />
+  <meta property="og:image"       content="https://danielbz.com/assets/images/og-card.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="Daniel Baez — CTO and Technology Executive, Miami, FL" />
+  <meta property="profile:first_name" content="Daniel" />
+  <meta property="profile:last_name"  content="Baez" />
+
   <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+
+  <!-- Marks that scripting is available, so the CSS can safely hide .reveal
+       elements before animating them in. Must run before first paint. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Structured data — keep in sync with the About, Education and Certifications sections -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniel Baez",
+    "url": "https://danielbz.com/",
+    "image": "https://danielbz.com/assets/images/og-card.jpg",
+    "jobTitle": "Chief Technology Officer",
+    "description": "CTO and technology leader modernizing complex operations through automation, scalable architecture, and applied AI.",
+    "worksFor": { "@type": "Organization", "name": "Insurance Nation" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Georgia Institute of Technology" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad Tecnológica de La Habana, CUJAE" }
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "AWS Certified Machine Learning Engineer – Associate",
+        "credentialCategory": "certification",
+        "recognizedBy": { "@type": "Organization", "name": "Amazon Web Services" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "GitHub Foundations",
+        "credentialCategory": "certification",
+        "recognizedBy": { "@type": "Organization", "name": "GitHub" }
+      }
+    ],
+    "knowsAbout": [
+      "Cloud Architecture",
+      "Applied AI",
+      "Retrieval-Augmented Generation",
+      "Workflow Automation",
+      "Digital Transformation",
+      "IT Strategy"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/danielbaezpi/",
+      "https://github.com/danbaez"
+    ]
+  }
+  </script>
 
   <style>
     /* ═══════════════════════════════════════════
        DESIGN TOKENS
     ═══════════════════════════════════════════ */
     :root {
-      --bg:        #F9F9F8;
-      --surface:   #FFFFFF;
-      --border:    #E4E4E7;
-      --text:      #0F0F0F;
-      --text-2:    #3F3F46;
-      --text-3:    #71717A;
-      --accent:    #1A56DB;
+      color-scheme: light dark;
+
+      --bg:            #F9F9F8;
+      --surface:       #FFFFFF;
+      --surface-hover: #FAFAF9;  /* card hover — a hair off --surface */
+      --surface-2:     #F0F0EF;  /* ghost button / icon button hover */
+      --border:        #E4E4E7;
+      --border-2:      #C8C8CB;  /* stronger border on hover */
+      --text:          #0F0F0F;
+      --text-2:        #3F3F46;
+      --text-3:        #71717A;
+
+      --accent:        #1A56DB;
+      --accent-rgb:    26, 86, 219;   /* every accent tint derives from this */
+
+      --btn-bg:        #0F0F0F;
+      --btn-bg-hover:  #272727;
+      --btn-fg:        #FFFFFF;
+
+      --nav-bg:        rgba(249, 249, 248, 0.88);
+      --pill-hover:    rgba(0, 0, 0, 0.05);
+      --pill-active:   rgba(0, 0, 0, 0.07);
+
+      --hero-glow-1:   rgba(26, 86, 219, 0.055);
+      --hero-glow-2:   rgba(99, 102, 241, 0.04);
+
       --radius:    10px;
       --col:       660px;
       --ease:      cubic-bezier(0.4, 0, 0.2, 1);
       --ease-out:  cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    /* Dark mode follows the OS. Redefine tokens only — no rule below this
+       block should need a scheme-specific override. */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:            #0C0C0D;
+        --surface:       #141416;
+        --surface-hover: #1A1A1D;
+        --surface-2:     #202024;
+        --border:        #26262A;
+        --border-2:      #3A3A40;
+        --text:          #F4F4F5;
+        --text-2:        #C7C7CE;
+        --text-3:        #8E8E99;
+
+        --accent:        #7CA0FF;
+        --accent-rgb:    124, 160, 255;
+
+        --btn-bg:        #F4F4F5;
+        --btn-bg-hover:  #FFFFFF;
+        --btn-fg:        #0C0C0D;
+
+        --nav-bg:        rgba(12, 12, 13, 0.88);
+        --pill-hover:    rgba(255, 255, 255, 0.07);
+        --pill-active:   rgba(255, 255, 255, 0.11);
+
+        --hero-glow-1:   rgba(124, 160, 255, 0.10);
+        --hero-glow-2:   rgba(129, 140, 248, 0.07);
+      }
     }
 
     /* ═══════════════════════════════════════════
@@ -52,17 +174,37 @@
 
     /* ═══════════════════════════════════════════
        SCROLL REVEAL
+
+       The hidden state is scoped to `.js`, which the inline script in <head>
+       adds. Without JS the class never lands and every .reveal element is
+       visible by default — the page must never depend on script to be read.
     ═══════════════════════════════════════════ */
     .reveal {
-      opacity: 0;
-      transform: translateY(16px);
       transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
     }
-    .reveal.visible        { opacity: 1; transform: translateY(0); }
+    .js .reveal            { opacity: 0; transform: translateY(16px); }
+    .js .reveal.visible    { opacity: 1; transform: translateY(0); }
     .reveal-delay-1        { transition-delay: 0.08s; }
     .reveal-delay-2        { transition-delay: 0.16s; }
     .reveal-delay-3        { transition-delay: 0.24s; }
     .reveal-delay-4        { transition-delay: 0.32s; }
+
+    /* ═══════════════════════════════════════════
+       REDUCED MOTION
+       Honour the OS setting: no reveal travel, no pulsing dot, no smooth
+       scroll. Content still renders exactly the same, just without movement.
+    ═══════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+      .js .reveal, .js .reveal.visible { opacity: 1; transform: none; }
+      .btn:active, .icon-btn:active { transform: none !important; }
+    }
 
     /* ═══════════════════════════════════════════
        NAV
@@ -71,7 +213,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(249, 249, 248, 0.88);
+      background: var(--nav-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid transparent;
@@ -107,8 +249,8 @@
       border-radius: 100px;
       transition: color 0.2s, background 0.2s;
     }
-    .nav-links a:hover         { color: var(--text); background: rgba(0,0,0,0.05); }
-    .nav-links a.active        { color: var(--text); background: rgba(0,0,0,0.07); font-weight: 600; }
+    .nav-links a:hover         { color: var(--text); background: var(--pill-hover); }
+    .nav-links a.active        { color: var(--text); background: var(--pill-active); font-weight: 600; }
 
     /* ═══════════════════════════════════════════
        LAYOUT
@@ -144,8 +286,8 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 60% 55% at 10% 25%, rgba(26,86,219,0.055) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 40% at 90% 75%, rgba(99,102,241,0.04)  0%, transparent 65%);
+        radial-gradient(ellipse 60% 55% at 10% 25%, var(--hero-glow-1) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 90% 75%, var(--hero-glow-2) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -218,12 +360,12 @@
     .btn:active { transform: scale(0.96) !important; }
 
     .btn-primary {
-      background: var(--text);
-      color: #fff;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
       box-shadow: 0 1px 3px rgba(0,0,0,0.14), 0 1px 2px rgba(0,0,0,0.08);
     }
     .btn-primary:hover {
-      background: #272727;
+      background: var(--btn-bg-hover);
       box-shadow: 0 4px 14px rgba(0,0,0,0.16);
       transform: translateY(-1px);
     }
@@ -235,8 +377,8 @@
       box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
     .btn-ghost:hover {
-      background: #F0F0EF;
-      border-color: #C8C8CB;
+      background: var(--surface-2);
+      border-color: var(--border-2);
       transform: translateY(-1px);
     }
 
@@ -261,8 +403,8 @@
     .icon-btn svg { width: 16px; height: 16px; }
     .icon-btn:hover {
       color: var(--text);
-      background: #F0F0EF;
-      border-color: #C8C8CB;
+      background: var(--surface-2);
+      border-color: var(--border-2);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.09);
     }
@@ -295,7 +437,7 @@
       color: var(--accent);
       text-decoration: underline;
       text-underline-offset: 3px;
-      text-decoration-color: rgba(26,86,219,0.28);
+      text-decoration-color: rgba(var(--accent-rgb), 0.28);
       transition: text-decoration-color 0.2s;
     }
     .about-body a:hover { text-decoration-color: var(--accent); }
@@ -316,7 +458,7 @@
       padding: 22px 20px;
       transition: background 0.2s;
     }
-    .stat:hover { background: #FAFAF9; }
+    .stat:hover { background: var(--surface-hover); }
     .stat-number {
       font-size: 26px;
       font-weight: 700;
@@ -325,60 +467,6 @@
       margin-bottom: 5px;
     }
     .stat-desc { font-size: 12px; color: var(--text-3); }
-
-    /* ═══════════════════════════════════════════
-       BRAND GRID (Philosophy / Trends)
-    ═══════════════════════════════════════════ */
-    .brand-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-top: 22px;
-    }
-    .brand-card {
-      background: var(--surface);
-      padding: 22px 20px;
-      transition: background 0.2s;
-    }
-    .brand-card:hover { background: #FAFAF9; }
-    .brand-kicker {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 8px;
-    }
-    .brand-card h3 {
-      font-size: 15.5px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-    .brand-card p {
-      font-size: 13.5px;
-      color: var(--text-2);
-      line-height: 1.65;
-    }
-
-    /* Quote block */
-    .quote {
-      margin-top: 18px;
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.6);
-      color: var(--text-2);
-      font-size: 14px;
-      line-height: 1.75;
-    }
-    .quote strong { color: var(--text); font-weight: 700; }
 
     /* ═══════════════════════════════════════════
        FEATURED CASE STUDY
@@ -394,7 +482,7 @@
     .case-top {
       padding: 22px 20px;
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(to bottom, rgba(26,86,219,0.04), transparent);
+      background: linear-gradient(to bottom, rgba(var(--accent-rgb), 0.04), transparent);
     }
     .case-title {
       display: flex;
@@ -414,7 +502,7 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--accent);
-      background: rgba(26,86,219,0.10);
+      background: rgba(var(--accent-rgb), 0.10);
       padding: 4px 10px;
       border-radius: 999px;
     }
@@ -499,7 +587,7 @@
       position: relative;
       transition: background 0.2s;
     }
-    .project-card:hover { background: #FAFAF9; }
+    .project-card:hover { background: var(--surface-hover); }
     .project-card::after {
       content: '';
       position: absolute;
@@ -575,7 +663,7 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--accent);
-      background: rgba(26,86,219,0.09);
+      background: rgba(var(--accent-rgb), 0.09);
       border-radius: 100px;
       padding: 2px 8px;
     }
@@ -624,7 +712,7 @@
       padding: 20px;
       transition: background 0.2s;
     }
-    .skill-card:hover { background: #FAFAF9; }
+    .skill-card:hover { background: var(--surface-hover); }
     .skill-label {
       font-size: 10.5px;
       font-weight: 700;
@@ -662,6 +750,14 @@
     /* ═══════════════════════════════════════════
        CONTACT
     ═══════════════════════════════════════════ */
+    .contact-intro {
+      font-size: 15.5px;
+      color: var(--text-2);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+    .contact-cta { margin: 26px 0 34px; }
+
     .contact-row {
       display: flex;
       align-items: center;
@@ -687,12 +783,12 @@
       color: var(--accent);
       padding: 5px 12px;
       border-radius: 100px;
-      border: 1px solid rgba(26,86,219,0.22);
+      border: 1px solid rgba(var(--accent-rgb), 0.22);
       transition: background 0.2s, border-color 0.2s, transform 0.15s var(--ease);
     }
     .contact-link:hover {
-      background: rgba(26,86,219,0.06);
-      border-color: rgba(26,86,219,0.4);
+      background: rgba(var(--accent-rgb), 0.06);
+      border-color: rgba(var(--accent-rgb), 0.4);
       transform: translateY(-1px);
     }
     .contact-link svg { width: 12px; height: 12px; }
@@ -720,7 +816,6 @@
       .contact-row     { flex-wrap: wrap; }
       .projects-grid   { grid-template-columns: 1fr; }
       .skills-grid     { grid-template-columns: 1fr; }
-      .brand-grid      { grid-template-columns: 1fr; }
       .case-grid       { grid-template-columns: 1fr; }
       .stats           { grid-template-columns: 1fr; }
       .hero h1         { letter-spacing: -1px; }
@@ -1007,14 +1102,15 @@
     <section class="scroll-section" id="contact" aria-label="Contact">
       <p class="label reveal">Contact</p>
 
-      <div class="contact-row reveal reveal-delay-2">
-        <span class="contact-key">LinkedIn</span>
-        <span class="contact-val">linkedin.com/in/danielbaezpi</span>
-        <a href="https://www.linkedin.com/in/danielbaezpi/" target="_blank" rel="noopener" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-          </svg>
-          Open
+      <p class="contact-intro reveal reveal-delay-1">
+        LinkedIn is the best way to reach me — I'm always open to conversations about
+        technology leadership, modernization work, and applied AI.
+      </p>
+
+      <div class="contact-cta reveal reveal-delay-2">
+        <a href="https://www.linkedin.com/in/danielbaezpi/" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Connect on LinkedIn
         </a>
       </div>
 
@@ -1030,14 +1126,8 @@
       </div>
 
       <div class="contact-row reveal reveal-delay-4">
-        <span class="contact-key">Website</span>
-        <span class="contact-val">danielbz.com</span>
-        <a href="https://danielbz.com" target="_blank" rel="noopener" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-          </svg>
-          Open
-        </a>
+        <span class="contact-key">Based in</span>
+        <span class="contact-val">Miami, FL &nbsp;·&nbsp; Eastern Time</span>
       </div>
     </section>
 
@@ -1066,9 +1156,23 @@
   }, { passive: true });
 
   /* ── Scroll Reveal (IntersectionObserver) ── */
+  const prefersReducedMotion =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function revealAll(items) {
+    items.forEach(el => el.classList.add('visible'));
+  }
+
   function attachReveal() {
     const items = document.querySelectorAll('.reveal:not(.visible)');
     if (!items.length) return;
+
+    /* No observer support, or the user asked for less motion — show everything
+       immediately rather than leaving the page blank. */
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      revealAll(items);
+      return;
+    }
 
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -1084,22 +1188,41 @@
 
   attachReveal();
 
-  /* ── Scroll Spy — highlight active nav link ── */
-  const sections = document.querySelectorAll('.scroll-section');
+  /* ── Scroll Spy — highlight active nav link ──
+     Only sections that actually have a nav link are observed; observing an
+     unlinked one used to clear every highlight and leave the nav blank.
+     Visible sections are tracked in a set and the topmost one wins, so the
+     highlight never flickers when two sections straddle the trigger band. */
   const navLinks = document.querySelectorAll('.nav-links a');
+  const linkFor  = new Map();
 
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.getAttribute('id');
-        navLinks.forEach(l => {
-          l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
+  navLinks.forEach(l => {
+    const id = l.getAttribute('href');
+    if (id && id.startsWith('#')) linkFor.set(id.slice(1), l);
+  });
 
-  sections.forEach(s => spy.observe(s));
+  const spiedSections = [...document.querySelectorAll('.scroll-section')]
+    .filter(s => linkFor.has(s.id));
+
+  if (spiedSections.length) {
+    const visible = new Set();
+
+    const setActive = () => {
+      if (!visible.size) return;               /* keep the last highlight */
+      const top = spiedSections.find(s => visible.has(s.id));
+      navLinks.forEach(l => l.classList.toggle('active', l === linkFor.get(top.id)));
+    };
+
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) visible.add(e.target.id);
+        else                  visible.delete(e.target.id);
+      });
+      setActive();
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    spiedSections.forEach(s => spy.observe(s));
+  }
 </script>
 
 </body>
