@@ -536,7 +536,26 @@
     }
     .case-cell.wide { grid-column: 1 / -1; }
 
-    /* Pipeline diagram — numbered steps joined by a connector rail. */
+    /* Pipeline diagram — SVG summary above the numbered steps. */
+    .flow-diagram {
+      margin: 12px 0 4px;
+      overflow-x: auto;
+    }
+    .flow-diagram svg {
+      display: block;
+      width: 100%;
+      min-width: 540px;
+      height: auto;
+    }
+    .fd-box   { fill: var(--bg); stroke: var(--border-2); stroke-width: 1; }
+    .fd-box-a { fill: rgba(var(--accent-rgb), 0.07); stroke: rgba(var(--accent-rgb), 0.35); stroke-width: 1; }
+    .fd-k     { fill: var(--text); font-size: 10.5px; font-weight: 700; letter-spacing: 0.01em; }
+    .fd-v     { fill: var(--text-3); font-size: 9.5px; font-weight: 500; }
+    .fd-a     { fill: var(--accent); font-size: 10px; font-weight: 700; }
+    .fd-rail  { stroke: var(--text-3); stroke-width: 1; fill: none; }
+    .fd-head  { fill: var(--text-3); }
+
+    /* Pipeline detail — numbered steps joined by a connector rail. */
     .flow { margin-top: 12px; }
     .flow-step {
       position: relative;
@@ -962,8 +981,8 @@
           <div class="stat-desc">Users on the operational platform I built</div>
         </div>
         <div class="stat">
-          <div class="stat-number">~8</div>
-          <div class="stat-desc">Production systems deployed</div>
+          <div class="stat-number">15k</div>
+          <div class="stat-desc">Documents reviewed monthly by AI pipeline</div>
         </div>
       </div>
     </section>
@@ -1000,6 +1019,43 @@
 
           <div class="case-cell wide">
             <div class="case-k">Architecture</div>
+            <div class="flow-diagram">
+              <svg viewBox="0 0 660 112" role="img" aria-labelledby="fd-t fd-d">
+    <title id="fd-t">Document review pipeline</title>
+    <desc id="fd-d">A policy document arrives as a PDF or image, is read by a multimodal model, grounded against the relevant carrier's rules, structured into a 50-plus item JSON checklist, and evaluated by deterministic business rules. The result is then routed by confidence: roughly 85 percent clear automatically and the remainder go to human review.</desc>
+    <rect class="fd-box" x="1" y="40" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="47" y="62" text-anchor="middle">Intake</text>
+    <text class="fd-v" x="47" y="76" text-anchor="middle">PDF / image</text>
+    <path class="fd-rail" d="M94 65 H100"/>
+    <polygon class="fd-head" points="100,62 105,65 100,68"/>
+    <rect class="fd-box" x="105" y="40" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="151" y="62" text-anchor="middle">Analyze</text>
+    <text class="fd-v" x="151" y="76" text-anchor="middle">multimodal</text>
+    <path class="fd-rail" d="M198 65 H204"/>
+    <polygon class="fd-head" points="204,62 209,65 204,68"/>
+    <rect class="fd-box" x="209" y="40" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="255" y="62" text-anchor="middle">Ground</text>
+    <text class="fd-v" x="255" y="76" text-anchor="middle">carrier rules</text>
+    <path class="fd-rail" d="M302 65 H308"/>
+    <polygon class="fd-head" points="308,62 313,65 308,68"/>
+    <rect class="fd-box" x="313" y="40" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="359" y="62" text-anchor="middle">Structure</text>
+    <text class="fd-v" x="359" y="76" text-anchor="middle">50+ item JSON</text>
+    <path class="fd-rail" d="M406 65 H412"/>
+    <polygon class="fd-head" points="412,62 417,65 412,68"/>
+    <rect class="fd-box" x="417" y="40" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="463" y="62" text-anchor="middle">Evaluate</text>
+    <text class="fd-v" x="463" y="76" text-anchor="middle">business rules</text>
+    <path class="fd-rail" d="M510 65 H525"/>
+    <path class="fd-rail" d="M525 65 V44 H531"/>
+    <path class="fd-rail" d="M525 65 V86 H531"/>
+    <polygon class="fd-head" points="531,41 536,44 531,47"/>
+    <polygon class="fd-head" points="531,83 536,86 531,89"/>
+    <text class="fd-a" x="541" y="48">~85% automatic</text>
+    <text class="fd-k" x="541" y="90">Human review</text>
+    <text class="fd-v" x="523" y="106" text-anchor="middle">by confidence</text>
+              </svg>
+            </div>
             <div class="flow">
               <div class="flow-step">
                 <span class="flow-n">1</span>
@@ -1133,10 +1189,21 @@
             <p>
               <strong>650+ users</strong> on a continuously evolving operational platform spanning CRM,
               policies, accounting, reporting, dashboards, metrics, analytics, and integrated communications.
-              Thirteen years in production and still the system the business runs on.
+              In production since <strong>2014</strong> and still the system the business runs on.
             </p>
           </div>
           <div class="case-cell">
+            <div class="case-k">Results</div>
+            <p>
+              Replacing it with a comparable commercial agency management system would cost roughly
+              <strong>$620,000 a year</strong> in licensing at current headcount — about $80 per seat per
+              month across 650 seats, before agency fees. That is the recurring cost the build decision
+              avoids, every year, and it buys workflows shaped to this agency rather than to a vendor's
+              assumptions about it.
+            </p>
+          </div>
+
+          <div class="case-cell wide">
             <div class="case-k">Architecture</div>
             <p>
               Proprietary enterprise application architecture integrating operational workflows, CRM
@@ -1182,20 +1249,20 @@
         </div>
 
         <div class="project-card reveal reveal-delay-3">
-          <p class="project-year">2022</p>
-          <h3 class="project-name">iBinderbook</h3>
-          <p class="project-desc">Custom agency management and CRM platform unifying policy workflows, lead tracking, commission logic, and automation into a single system of record.</p>
-          <div class="project-tags">
-            <span class="tag">CRM</span><span class="tag">Automation</span><span class="tag">Insurance</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-3">
           <p class="project-year">2021</p>
           <h3 class="project-name">Enterprise Communications Platform</h3>
           <p class="project-desc">API-driven communications built on Twilio and integrated directly into the CRM platform — voice calls, SMS, automated messaging, IVRs, number management, and application-driven communication workflows.</p>
           <div class="project-tags">
             <span class="tag">Twilio</span><span class="tag">Voice &amp; SMS</span><span class="tag">Integrations</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <p class="project-year">2014 — Present</p>
+          <h3 class="project-name">iBinderbook</h3>
+          <p class="project-desc">Custom agency management and CRM platform unifying policy workflows, lead tracking, commission logic, and automation into a single system of record.</p>
+          <div class="project-tags">
+            <span class="tag">CRM</span><span class="tag">Automation</span><span class="tag">Insurance</span>
           </div>
         </div>
       </div>
@@ -1216,7 +1283,7 @@
             <h3>Chief Technology Officer</h3>
             <p class="tl-org">Insurance Nation &nbsp;·&nbsp; Miami, FL</p>
             <ul>
-              <li>Set technology strategy with ownership and lead a team of 5 across development and IT</li>
+              <li>Set technology strategy with ownership and lead the development and IT organization</li>
               <li>Own build-vs-buy for core systems — chose to build the agency management platform in-house rather than adopt an off-the-shelf AMS</li>
               <li>Built and scaled multi-cloud infrastructure supporting every core operational platform</li>
               <li>Shipped AI policy-documentation review to reduce underwriting risk, with human escalation in the workflow</li>
@@ -1234,7 +1301,7 @@
             <h3>IT Director</h3>
             <p class="tl-org">Insurance Nation &nbsp;·&nbsp; Miami, FL</p>
             <ul>
-              <li>Expanded iBinderbook, the company's internally developed management platform, with additional operational capabilities as business requirements evolved</li>
+              <li>Launched iBinderbook in 2014 and led its expansion as the company's internally developed management platform, adding operational capabilities as business requirements evolved</li>
               <li>Built and expanded communications capabilities through Twilio integrations — automated SMS, voice calling, IVRs, number management, and API integration with iBinderbook</li>
               <li>Held technical leadership of the company's core operational systems and their integration into day-to-day business processes</li>
             </ul>
@@ -1249,7 +1316,7 @@
             <h3>Systems Administrator &amp; Business Development</h3>
             <p class="tl-org">Insurance Nation &nbsp;·&nbsp; Miami, FL</p>
             <ul>
-              <li>Conceived the original architecture for iBinderbook, defining requirements and leading developers as it evolved from an internal system into the company's core CRM and management platform</li>
+              <li>Conceived the original architecture for iBinderbook and defined its requirements, laying the groundwork for the build that began in 2014</li>
               <li>Led early technology initiatives including the company's communications platform, establishing the foundation for broader technology leadership</li>
             </ul>
           </div>
@@ -1366,7 +1433,7 @@
         <div class="skill-card reveal reveal-delay-4">
           <p class="skill-label">Leadership</p>
           <p>IT strategy, modernization programs, build-vs-buy ownership, governance, and stakeholder
-            alignment. Leading a team of 5 across development and IT.</p>
+            alignment.</p>
         </div>
       </div>
     </section>
