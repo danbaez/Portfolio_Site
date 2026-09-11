@@ -8,3 +8,6 @@
 .vscode/
 .idea/
 *.swp
+
+# Private working notes — never publish
+REVISIT.md

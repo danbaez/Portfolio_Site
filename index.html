@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel Baez — Technology Executive</title>
-  <meta name="description" content="Daniel Baez — CTO and technology executive focused on transforming legacy operations into intelligent, scalable systems through automation, cloud, and applied AI." />
+  <title>Daniel Baez — CTO &amp; Applied AI</title>
+  <meta name="description" content="Daniel Baez — CTO at Insurance Nation. Sets technology strategy for a regulated insurance operation and builds the systems that deliver it: multi-cloud platforms, workflow automation, and AI document pipelines in production." />
   <meta name="author" content="Daniel Baez" />
   <link rel="canonical" href="https://danielbz.com/" />
   <meta name="theme-color" content="#F9F9F8" media="(prefers-color-scheme: light)" />
@@ -15,12 +15,12 @@
   <meta property="og:site_name"   content="Daniel Baez" />
   <meta property="og:locale"      content="en_US" />
   <meta property="og:url"         content="https://danielbz.com/" />
-  <meta property="og:title"       content="Daniel Baez — Technology Executive" />
-  <meta property="og:description" content="CTO and technology leader modernizing complex operations through automation, scalable architecture, and applied AI." />
+  <meta property="og:title"       content="Daniel Baez — CTO &amp; Applied AI" />
+  <meta property="og:description" content="From board strategy to production code. CTO at Insurance Nation — multi-cloud platforms, workflow automation, and AI document pipelines in a regulated industry." />
   <meta property="og:image"       content="https://danielbz.com/assets/images/og-card.jpg" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt"   content="Daniel Baez — CTO and Technology Executive, Miami, FL" />
+  <meta property="og:image:alt"   content="Daniel Baez — CTO and Applied AI, Miami, FL" />
   <meta property="profile:first_name" content="Daniel" />
   <meta property="profile:last_name"  content="Baez" />
 
@@ -39,7 +39,7 @@
     "url": "https://danielbz.com/",
     "image": "https://danielbz.com/assets/images/og-card.jpg",
     "jobTitle": "Chief Technology Officer",
-    "description": "CTO and technology leader modernizing complex operations through automation, scalable architecture, and applied AI.",
+    "description": "CTO at Insurance Nation. Sets technology strategy for a regulated insurance operation and architects the systems that deliver it: multi-cloud platforms, workflow automation, and AI document pipelines in production.",
     "worksFor": { "@type": "Organization", "name": "Insurance Nation" },
     "address": {
       "@type": "PostalAddress",
@@ -56,19 +56,21 @@
         "@type": "EducationalOccupationalCredential",
         "name": "AWS Certified Machine Learning Engineer – Associate",
         "credentialCategory": "certification",
+        "url": "https://www.credly.com/badges/451c0623-697f-460c-bd8d-b1766befff5a/public_url",
         "recognizedBy": { "@type": "Organization", "name": "Amazon Web Services" }
       },
       {
         "@type": "EducationalOccupationalCredential",
         "name": "GitHub Foundations",
         "credentialCategory": "certification",
+        "url": "https://www.credly.com/badges/7cfaa410-71d7-41fb-9af9-e50bca0dd0d0/public_url",
         "recognizedBy": { "@type": "Organization", "name": "GitHub" }
       }
     ],
     "knowsAbout": [
       "Cloud Architecture",
       "Applied AI",
-      "Retrieval-Augmented Generation",
+      "Document Intelligence",
       "Workflow Automation",
       "Digital Transformation",
       "IT Strategy"
@@ -338,6 +340,14 @@
       flex-wrap: wrap;
     }
 
+    .hero-note {
+      margin-top: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-3);
+      max-width: 520px;
+    }
+
     /* ── Buttons ── */
     .btn {
       display: inline-flex;
@@ -459,6 +469,7 @@
       transition: background 0.2s;
     }
     .stat:hover { background: var(--surface-hover); }
+
     .stat-number {
       font-size: 26px;
       font-weight: 700;
@@ -523,6 +534,45 @@
       background: var(--surface);
       padding: 18px 20px;
     }
+    .case-cell.wide { grid-column: 1 / -1; }
+
+    /* Pipeline diagram — numbered steps joined by a connector rail. */
+    .flow { margin-top: 12px; }
+    .flow-step {
+      position: relative;
+      display: flex;
+      gap: 12px;
+      padding-bottom: 15px;
+    }
+    .flow-step:last-child { padding-bottom: 0; }
+    .flow-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 25px;
+      bottom: 3px;
+      width: 1px;
+      background: var(--border-2);
+    }
+    .flow-n {
+      flex-shrink: 0;
+      width: 21px; height: 21px;
+      border-radius: 50%;
+      background: rgba(var(--accent-rgb), 0.12);
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flow-t {
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.6;
+      padding-top: 2px;
+    }
+    .flow-t strong { color: var(--text); font-weight: 600; }
     .case-k {
       font-size: 10.5px;
       font-weight: 700;
@@ -531,6 +581,7 @@
       color: var(--text-3);
       margin-bottom: 8px;
     }
+    .case-cell strong { color: var(--text); font-weight: 600; }
     .case-cell p, .case-cell li {
       font-size: 13.5px;
       color: var(--text-2);
@@ -552,23 +603,6 @@
       margin-top: 9px;
       flex-shrink: 0;
     }
-    .case-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-    .metric {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-2);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 4px 10px;
-      white-space: nowrap;
-    }
-
     /* ═══════════════════════════════════════════
        PROJECTS
     ═══════════════════════════════════════════ */
@@ -581,6 +615,8 @@
       border-radius: var(--radius);
       overflow: hidden;
     }
+    /* Lead project spans the full row so the grid stays gapless at 5 cards. */
+    .project-card.span-2 { grid-column: 1 / -1; }
     .project-card {
       background: var(--surface);
       padding: 28px 24px;
@@ -722,6 +758,9 @@
       margin-bottom: 7px;
     }
     .skill-card p { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+    .skill-card strong { color: var(--text); font-weight: 600; }
+    /* Leadership block reuses the skills card, stacked full-width. */
+    .skills-grid.decisions { grid-template-columns: 1fr; }
 
     /* ═══════════════════════════════════════════
        CERTIFICATIONS
@@ -745,11 +784,19 @@
       background: var(--border);
       padding: 3px 9px;
       border-radius: 100px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    a.cert-pill:hover,
+    a.cert-pill:focus-visible {
+      color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.12);
     }
 
     /* ═══════════════════════════════════════════
        CONTACT
     ═══════════════════════════════════════════ */
+    .section-intro,
     .contact-intro {
       font-size: 15.5px;
       color: var(--text-2);
@@ -845,15 +892,15 @@
     <section class="hero scroll-section" id="hero" aria-label="Intro">
       <div class="hero-eyebrow reveal">
         <span class="eyebrow-dot" aria-hidden="true"></span>
-        CTO &nbsp;·&nbsp; Technology Executive &nbsp;·&nbsp; Miami, FL
+        CTO &nbsp;·&nbsp; Applied AI &nbsp;·&nbsp; Miami, FL
       </div>
 
-      <h1 class="reveal reveal-delay-1">Turning legacy operations<br>into intelligent, scalable systems.</h1>
+      <h1 class="reveal reveal-delay-1">From board strategy<br>to production code.</h1>
 
       <p class="hero-sub reveal reveal-delay-2">
-        I'm Daniel Baez — CTO and technology leader focused on modernizing complex processes through
-        automation, scalable architecture, and applied AI. I build platforms that reduce friction,
-        increase operational leverage, and perform reliably at scale.
+        I'm Daniel Baez, CTO at Insurance Nation. I set technology strategy for a regulated insurance
+        operation — and I architect and build the systems that deliver it: multi-cloud platforms,
+        workflow automation, and AI document pipelines running in production.
       </p>
 
       <div class="hero-cta reveal reveal-delay-3">
@@ -866,6 +913,11 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         </a>
       </div>
+
+      <p class="hero-note reveal reveal-delay-4">
+        Not looking for a role — always open to a conversation about modernization,
+        governed automation, and applied AI in regulated operations.
+      </p>
     </section>
 
     <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
@@ -874,47 +926,184 @@
 
       <div class="about-body">
         <p class="reveal reveal-delay-1">
-          I'm the CTO of Insurance Nation, where I lead the architecture and delivery of platforms that modernize
-          end-to-end insurance operations. My work sits at the intersection of strategic leadership and hands-on
-          engineering — from multi-cloud infrastructure to AI-enabled systems.
+          I'm the CTO of Insurance Nation, where I lead the architecture and delivery of the platforms that run
+          end-to-end insurance operations. The job spans both ends of the stack: I set technology strategy with
+          ownership and the executive team, and I stay close enough to the code to make the architecture calls myself.
         </p>
         <p class="reveal reveal-delay-2">
           Originally trained as a Telecommunications Engineer in Havana, Cuba, I built my career across the full
-          technology stack — moving from systems design to digital transformation leadership. I hold an MS in
-          Computer Science from Georgia Tech and I'm an <strong>AWS ML Engineer – Associate</strong>, focused
-          on building practical AI systems that create measurable operational leverage.
+          technology stack — from systems design into digital transformation leadership. I hold an MS in
+          Computer Science from Georgia Tech and I'm an <strong>AWS ML Engineer – Associate</strong>.
         </p>
         <p class="reveal reveal-delay-3">
-          Today my focus is intelligent operations: RAG pipelines, workflow orchestration, and applying modern ML tooling in environments where reliability and governance matter. I believe
-          the best technology is invisible: it just works, reliably, at scale.
+          Today the work is applied AI in a regulated industry: document intelligence, extraction from
+          unstructured carrier paperwork, and workflow orchestration — built on the
+          <strong>Claude</strong> and <strong>OpenAI</strong> APIs,
+          <strong>AWS Bedrock and SageMaker</strong>, and locally hosted models for the cases where the data can't
+          leave the building. In insurance, a model that is right most of the time isn't finished — so most of my
+          attention goes to the parts that decide when <em>not</em> to automate: confidence thresholds, escalation
+          paths, and which data is allowed to leave the building at all.
+        </p>
+        <p class="reveal reveal-delay-3">
+          Outside of work I run <a href="https://pirabits.com" target="_blank" rel="noopener">pirabits.com</a>,
+          my personal experimental lab — a space for exploring AI, emerging technologies, and creative ideas
+          outside the constraints of production systems. It's where I build and test without every idea
+          needing to become a product.
         </p>
       </div>
 
       <div class="stats reveal reveal-delay-4" aria-label="Highlights">
         <div class="stat">
           <div class="stat-number">17+</div>
-          <div class="stat-desc">Years in technology leadership</div>
+          <div class="stat-desc">Years building and leading technology systems</div>
         </div>
         <div class="stat">
-          <div class="stat-number">MS</div>
-          <div class="stat-desc">Computer Science, Georgia Tech</div>
+          <div class="stat-number">650+</div>
+          <div class="stat-desc">Users on the operational platform I built</div>
         </div>
         <div class="stat">
-          <div class="stat-number">AWS</div>
-          <div class="stat-desc">Certified ML Engineer – Associate</div>
+          <div class="stat-number">~8</div>
+          <div class="stat-desc">Production systems deployed</div>
         </div>
       </div>
     </section>
 
 
-    <!-- ══════════════════════════════ FEATURED CASE STUDY ══════════════════════════════ -->
-    <section class="scroll-section" id="casestudy" aria-label="Featured Case Study">
+    <!-- ══════════════════════════════ FEATURED CASE STUDY — AI ══════════════════════════════ -->
+    <section class="scroll-section" id="underwriting" aria-label="Featured Case Study: AI-Enabled Document Review">
       <p class="label reveal">Featured Case Study</p>
 
       <div class="case-study reveal reveal-delay-1">
         <div class="case-top">
           <div class="case-title">
-            <h3>iBinderbook — Building operational leverage</h3>
+            <h3>AI-Enabled Document Review — Reading the documents nobody wants to read</h3>
+            <span class="case-pill">Applied AI</span>
+          </div>
+          <p class="case-sub">
+            A production pipeline that reviews insurance servicing documentation — new business,
+            cancellations, endorsements, and payments — against carrier rules, and escalates to a human
+            wherever it isn't confident.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <div class="case-cell wide">
+            <div class="case-k">Problem</div>
+            <p>
+              Underwriting risk hides in documents. Servicing paperwork arrives in no consistent schema, and
+              every carrier applies its own rules to it, so the only way to catch a discrepancy was for a
+              person to read every page against the right rulebook. That does not scale, and worse, it fails
+              unevenly: attention drops on page forty in a way it doesn't on page one. The cost of a missed
+              detail in insurance is not a bad user experience, it's a mispriced policy.
+            </p>
+          </div>
+
+          <div class="case-cell wide">
+            <div class="case-k">Architecture</div>
+            <div class="flow">
+              <div class="flow-step">
+                <span class="flow-n">1</span>
+                <div class="flow-t"><strong>Intake.</strong> Servicing documents arrive as PDFs or images, in
+                  whatever condition the sender produced them.</div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-n">2</span>
+                <div class="flow-t"><strong>Multimodal analysis.</strong> A vision-capable model reads the
+                  pages directly rather than working from an OCR transcript — on a poor scan, OCR produces
+                  confident garbage, which is worse than no answer.</div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-n">3</span>
+                <div class="flow-t"><strong>Carrier-rule context.</strong> The relevant carrier's rules are
+                  supplied alongside the document, so the model is checking against the rulebook that actually
+                  governs this policy instead of a general notion of correctness.</div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-n">4</span>
+                <div class="flow-t"><strong>Structured checklist.</strong> Output is a JSON checklist of 50+
+                  discrete items — not prose. Every finding is addressable, comparable, and checkable by
+                  something other than a human reading it.</div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-n">5</span>
+                <div class="flow-t"><strong>Business-rule evaluation.</strong> Internal deterministic rules
+                  evaluate the checklist. Rules, not the model, have the final say on anything that must be
+                  exact.</div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-n">6</span>
+                <div class="flow-t"><strong>Confidence and status.</strong> Each transaction resolves to a
+                  status with a confidence attached, which is what makes the next step a decision rather than
+                  a guess.</div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-n">7</span>
+                <div class="flow-t"><strong>Targeted human review.</strong> Low-confidence results route to a
+                  reviewer. A randomized sample is reviewed regardless of confidence, so the pipeline is
+                  measured on work it thought it got right.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-cell">
+            <div class="case-k">Governance</div>
+            <ul>
+              <li><span><strong>Confidence-gated automation</strong> — the pipeline is allowed to decline.
+                Low-confidence results route to a person rather than being passed through with a caveat, and a
+                randomized sample is reviewed even when confidence is high.</span></li>
+              <li><span><strong>Data residency by design</strong> — documents carrying PII are processed on
+                locally hosted models. Model choice follows the data classification, not the other way
+                round.</span></li>
+            </ul>
+          </div>
+
+          <div class="case-cell">
+            <div class="case-k">Evaluation</div>
+            <p>
+              Evaluated against approximately 1,000 real applications before production rollout, with human
+              reviewers comparing AI-generated findings against source documents and established review
+              criteria. In production, evaluation continues through targeted review of low-confidence results
+              plus randomized quality-control sampling.
+            </p>
+          </div>
+
+          <div class="case-cell wide">
+            <div class="case-k">Results</div>
+            <p>
+              Processes approximately <strong>15,000 insurance servicing documents per month</strong> across new
+              business, cancellations, endorsements, and payments. Approximately <strong>85% are processed
+              automatically</strong>, with human review concentrated on low-confidence results and randomized
+              quality-control samples.
+            </p>
+            <p style="margin-top: 10px;">
+              Typical processing time decreased from approximately <strong>7 minutes to 2 minutes</strong> per
+              transaction. The dedicated review team went from <strong>10 reviewers to 5</strong>, with team
+              members transitioned into other departments.
+            </p>
+          </div>
+
+          <div class="case-cell wide">
+            <div class="case-k">Stack</div>
+            <p>
+              <strong>Claude</strong> and <strong>OpenAI</strong> APIs, <strong>AWS Bedrock</strong> and
+              <strong>SageMaker</strong>, and locally hosted models for PII-bearing documents.
+              <strong>AWS Textract</strong> handles structured extraction on payment transactions, where the
+              incoming documents are standardized enough that deterministic extraction is the right tool.
+              <strong>Python</strong> and <strong>SQL Server</strong>, on AWS and Azure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ CASE STUDY — PLATFORM ══════════════════════════════ -->
+    <section class="scroll-section" id="casestudy" aria-label="Case Study: iBinderbook">
+      <p class="label reveal">Case Study</p>
+
+      <div class="case-study reveal reveal-delay-1">
+        <div class="case-top">
+          <div class="case-title">
+            <h3>iBinderbook — One system of record for an insurance agency</h3>
             <span class="case-pill">Platform / CRM</span>
           </div>
           <p class="case-sub">
@@ -940,18 +1129,20 @@
             </ul>
           </div>
           <div class="case-cell">
-            <div class="case-k">Impact</div>
-            <div class="case-metrics" aria-label="Metrics">
-              <span class="metric">↓ Processing time</span>
-              <span class="metric">↑ Agent throughput</span>
-              <span class="metric">↓ Manual steps</span>
-              <span class="metric">↑ Revenue per agent</span>
-            </div>
+            <div class="case-k">Scale</div>
+            <p>
+              <strong>650+ users</strong> on a continuously evolving operational platform spanning CRM,
+              policies, accounting, reporting, dashboards, metrics, analytics, and integrated communications.
+              Thirteen years in production and still the system the business runs on.
+            </p>
           </div>
           <div class="case-cell">
-            <div class="case-k">Stack</div>
+            <div class="case-k">Architecture</div>
             <p>
-              Internal platform engineering, workflow automation, APIs, cloud infrastructure, and operational analytics.
+              Proprietary enterprise application architecture integrating operational workflows, CRM
+              capabilities, policy management, accounting functions, reporting and analytics, and API-driven
+              communications. Integrated communications run on <strong>Twilio</strong> — voice, SMS, automated
+              messaging, IVRs, and number management.
             </p>
           </div>
         </div>
@@ -963,42 +1154,52 @@
       <p class="label reveal">Projects</p>
 
       <div class="projects-grid">
-        <div class="project-card reveal reveal-delay-1">
-          <p class="project-year">2022</p>
-          <h3 class="project-name">iBinderbook</h3>
-          <p class="project-desc">Custom agency management and CRM platform integrating policy workflows, lead tracking, and automation to improve operational leverage.</p>
+        <div class="project-card span-2 reveal reveal-delay-1">
+          <p class="project-year">2026 — Present</p>
+          <h3 class="project-name">AI-Enabled Document Review</h3>
+          <p class="project-desc">Reviews roughly 15,000 insurance servicing documents a month against carrier rules — multimodal analysis into a structured 50+ item checklist, then deterministic business rules. About 85% clear automatically; the rest route to a human by confidence. Processing time went from ~7 minutes to ~2.</p>
           <div class="project-tags">
-            <span class="tag">CRM</span><span class="tag">Automation</span><span class="tag">Insurance</span>
+            <span class="tag">Applied AI</span><span class="tag">Document intelligence</span><span class="tag">Governance</span>
           </div>
         </div>
 
         <div class="project-card reveal reveal-delay-2">
           <p class="project-year">2026</p>
-          <h3 class="project-name">AI-Enabled Underwriting</h3>
-          <p class="project-desc">Document intelligence and decision support workflows to reduce processing time, improve consistency, and support governed automation.</p>
+          <h3 class="project-name">AI Voice Training Platform</h3>
+          <p class="project-desc">Scenario-based employee training. Trainers define customer personas, emotional state, difficulty, behavioral rules, and success criteria; trainees hold real-time voice conversations with the simulated customer, then get AI scoring, pass/fail, strengths and weaknesses, and a persistent session history.</p>
           <div class="project-tags">
-            <span class="tag">AI / ML</span><span class="tag">RAG</span><span class="tag">Underwriting</span>
+            <span class="tag">Applied AI</span><span class="tag">Real-time voice</span><span class="tag">Evaluation</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <p class="project-year">2023</p>
+          <h3 class="project-name">Dealer Verification Platform</h3>
+          <p class="project-desc">A platform I architected and own, supporting dealership employees across approximately 30 dealerships. Tracks lead status and routes insurance opportunities generated through dealership workflows.</p>
+          <div class="project-tags">
+            <span class="tag">Platform</span><span class="tag">~30 dealerships</span><span class="tag">Lead routing</span>
           </div>
         </div>
 
         <div class="project-card reveal reveal-delay-3">
-          <p class="project-year">2023</p>
-          <h3 class="project-name">Dealer Verification Service</h3>
-          <p class="project-desc">Online verification platform improving compliance and operational accuracy through streamlined digital processes.</p>
+          <p class="project-year">2022</p>
+          <h3 class="project-name">iBinderbook</h3>
+          <p class="project-desc">Custom agency management and CRM platform unifying policy workflows, lead tracking, commission logic, and automation into a single system of record.</p>
           <div class="project-tags">
-            <span class="tag">Platform</span><span class="tag">Compliance</span><span class="tag">Verification</span>
+            <span class="tag">CRM</span><span class="tag">Automation</span><span class="tag">Insurance</span>
           </div>
         </div>
 
-        <div class="project-card reveal reveal-delay-4">
+        <div class="project-card reveal reveal-delay-3">
           <p class="project-year">2021</p>
-          <h3 class="project-name">Enterprise Communication Platforms</h3>
-          <p class="project-desc">Communication tooling with automation enhancements — smarter routing, reduced manual handling, and improved client interaction.</p>
+          <h3 class="project-name">Enterprise Communications Platform</h3>
+          <p class="project-desc">API-driven communications built on Twilio and integrated directly into the CRM platform — voice calls, SMS, automated messaging, IVRs, number management, and application-driven communication workflows.</p>
           <div class="project-tags">
-            <span class="tag">Enterprise</span><span class="tag">Automation</span><span class="tag">Telephony</span>
+            <span class="tag">Twilio</span><span class="tag">Voice &amp; SMS</span><span class="tag">Integrations</span>
           </div>
         </div>
       </div>
+
     </section>
 
     <!-- ══════════════════════════════ RESUME ══════════════════════════════ -->
@@ -1008,20 +1209,82 @@
       <div class="timeline">
         <div class="tl-item reveal reveal-delay-1">
           <div>
-            <div class="tl-date">2009<br>Present</div>
+            <div class="tl-date">2019<br>Present</div>
             <div class="tl-badge">Full-time</div>
           </div>
           <div class="tl-body">
             <h3>Chief Technology Officer</h3>
             <p class="tl-org">Insurance Nation &nbsp;·&nbsp; Miami, FL</p>
             <ul>
-              <li>Lead enterprise modernization, aligning architecture with long-term business strategy</li>
-              <li>Built and scaled multi-cloud infrastructure supporting core operational platforms</li>
-              <li>Delivered automation systems that reduce manual friction and increase throughput</li>
-              <li>Introduced AI-enabled workflows for document intelligence and decision support</li>
-              <li>Built cross-functional execution across product, operations, and engineering</li>
+              <li>Set technology strategy with ownership and lead a team of 5 across development and IT</li>
+              <li>Own build-vs-buy for core systems — chose to build the agency management platform in-house rather than adopt an off-the-shelf AMS</li>
+              <li>Built and scaled multi-cloud infrastructure supporting every core operational platform</li>
+              <li>Shipped AI policy-documentation review to reduce underwriting risk, with human escalation in the workflow</li>
+              <li>Built an AI training module using insurance personas to onboard new employees</li>
+              <li>Run cross-functional delivery across product, operations, and engineering</li>
             </ul>
           </div>
+        </div>
+
+        <div class="tl-item reveal reveal-delay-2">
+          <div>
+            <div class="tl-date">2013<br>2019</div>
+          </div>
+          <div class="tl-body">
+            <h3>IT Director</h3>
+            <p class="tl-org">Insurance Nation &nbsp;·&nbsp; Miami, FL</p>
+            <ul>
+              <li>Expanded iBinderbook, the company's internally developed management platform, with additional operational capabilities as business requirements evolved</li>
+              <li>Built and expanded communications capabilities through Twilio integrations — automated SMS, voice calling, IVRs, number management, and API integration with iBinderbook</li>
+              <li>Held technical leadership of the company's core operational systems and their integration into day-to-day business processes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal reveal-delay-3">
+          <div>
+            <div class="tl-date">2009<br>2013</div>
+          </div>
+          <div class="tl-body">
+            <h3>Systems Administrator &amp; Business Development</h3>
+            <p class="tl-org">Insurance Nation &nbsp;·&nbsp; Miami, FL</p>
+            <ul>
+              <li>Conceived the original architecture for iBinderbook, defining requirements and leading developers as it evolved from an internal system into the company's core CRM and management platform</li>
+              <li>Led early technology initiatives including the company's communications platform, establishing the foundation for broader technology leadership</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ LEADERSHIP ══════════════════════════════ -->
+    <section aria-label="Leadership">
+      <p class="label reveal">Leadership &amp; Ownership</p>
+
+      <p class="section-intro reveal reveal-delay-1">
+        Leading a team of 5 across development and IT, and owning the build-vs-buy decisions
+        for every core system the agency runs on. Three that mattered:
+      </p>
+
+      <div class="skills-grid decisions reveal reveal-delay-2">
+        <div class="skill-card">
+          <p class="skill-label">Build the agency management system</p>
+          <p>Chose to build iBinderbook in-house instead of buying an off-the-shelf AMS. We own the
+            product outright, and the policy, commission, and servicing workflows match how this agency
+            actually operates rather than how a vendor assumes it does.</p>
+        </div>
+        <div class="skill-card">
+          <p class="skill-label">Automate policy documentation review</p>
+          <p>Built AI review of servicing documentation to catch what manual review misses, directly reducing
+            underwriting risk. Roughly 85% of about 15,000 monthly documents now clear automatically; the
+            dedicated review team halved, and those employees moved into other departments rather than out
+            of the company.</p>
+        </div>
+        <div class="skill-card">
+          <p class="skill-label">Train people with AI, not slides</p>
+          <p>Built a voice training platform where trainers define a customer persona, emotional state, and
+            success criteria, and trainees hold a real conversation with the simulated customer — then get
+            scored on it. New employees practice the hard calls before taking a real one.</p>
         </div>
       </div>
     </section>
@@ -1062,7 +1325,9 @@
           <div class="cert-name">AWS ML Engineer – Associate</div>
           <div class="cert-issuer">Amazon Web Services</div>
         </div>
-        <div class="cert-pill">Verified</div>
+        <a class="cert-pill" href="https://www.credly.com/badges/451c0623-697f-460c-bd8d-b1766befff5a/public_url"
+           target="_blank" rel="noopener"
+           aria-label="Verify AWS ML Engineer – Associate on Credly">Verify ↗</a>
       </div>
       <div class="cert-row reveal reveal-delay-2">
         <div class="cert-date">Apr 2024</div>
@@ -1070,7 +1335,9 @@
           <div class="cert-name">GitHub Foundations</div>
           <div class="cert-issuer">GitHub</div>
         </div>
-        <div class="cert-pill">Verified</div>
+        <a class="cert-pill" href="https://www.credly.com/badges/7cfaa410-71d7-41fb-9af9-e50bca0dd0d0/public_url"
+           target="_blank" rel="noopener"
+           aria-label="Verify GitHub Foundations on Credly">Verify ↗</a>
       </div>
     </section>
 
@@ -1081,19 +1348,25 @@
       <div class="skills-grid">
         <div class="skill-card reveal reveal-delay-1">
           <p class="skill-label">Cloud</p>
-          <p>Architect and manage multi-cloud infrastructure</p>
+          <p><strong>AWS</strong> and <strong>Azure</strong> — infrastructure, identity, and networking across
+            both, with workloads placed by data-residency constraints rather than vendor preference.</p>
         </div>
         <div class="skill-card reveal reveal-delay-2">
-          <p class="skill-label">AI / ML</p>
-          <p>RAG pipelines, LLM agents, document intelligence, workflow orchestration</p>
+          <p class="skill-label">Applied AI</p>
+          <p><strong>Claude</strong> and <strong>OpenAI</strong> APIs, <strong>AWS Bedrock</strong> and
+            <strong>SageMaker</strong>, and locally hosted models for data that can't leave. Document
+            extraction with native multimodal models, and <strong>AWS Textract</strong> where documents are
+            standardized enough for deterministic extraction. Confidence thresholds, human escalation,
+            data-residency controls.</p>
         </div>
         <div class="skill-card reveal reveal-delay-3">
           <p class="skill-label">Engineering</p>
-          <p>Python, Git, Docker, Linux, PowerShell, REST APIs</p>
+          <p><strong>Python</strong>, <strong>SQL Server</strong>, <strong>Twilio</strong>, REST APIs, Docker, Linux, PowerShell, Git.</p>
         </div>
         <div class="skill-card reveal reveal-delay-4">
           <p class="skill-label">Leadership</p>
-          <p>IT strategy, modernization programs, governance, stakeholder alignment</p>
+          <p>IT strategy, modernization programs, build-vs-buy ownership, governance, and stakeholder
+            alignment. Leading a team of 5 across development and IT.</p>
         </div>
       </div>
     </section>
@@ -1103,8 +1376,9 @@
       <p class="label reveal">Contact</p>
 
       <p class="contact-intro reveal reveal-delay-1">
-        LinkedIn is the best way to reach me — I'm always open to conversations about
-        technology leadership, modernization work, and applied AI.
+        LinkedIn is the fastest way to reach me. If you're working on document-heavy operations in a
+        regulated industry — insurance, lending, healthcare — that's the conversation I'll always make
+        time for.
       </p>
 
       <div class="contact-cta reveal reveal-delay-2">
@@ -1115,9 +1389,20 @@
       </div>
 
       <div class="contact-row reveal reveal-delay-3">
-        <span class="contact-key">GitHub</span>
-        <span class="contact-val">github.com/danbaez</span>
+        <span class="contact-key">Lab</span>
+        <span class="contact-val">github.com/danbaez &nbsp;·&nbsp; experiments</span>
         <a href="https://github.com/danbaez" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+          Open
+        </a>
+      </div>
+
+      <div class="contact-row reveal reveal-delay-4">
+        <span class="contact-key">Side work</span>
+        <span class="contact-val">pirabits.com</span>
+        <a href="https://pirabits.com" target="_blank" rel="noopener" class="contact-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
           </svg>
