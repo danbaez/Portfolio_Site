@@ -674,6 +674,19 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
+    /* Marks the still-running work, so the ongoing-first sort reads as
+       intentional rather than unsorted. */
+    .project-active {
+      margin-left: 9px;
+      padding: 2px 7px;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.11);
+      border-radius: 999px;
+      vertical-align: 1px;
+    }
     .project-name {
       font-size: 15.5px;
       font-weight: 700;
@@ -1149,8 +1162,11 @@
             </p>
             <p style="margin-top: 10px;">
               Typical processing time decreased from approximately <strong>7 minutes to 2 minutes</strong> per
-              transaction. The dedicated review team went from <strong>10 reviewers to 5</strong>, with team
-              members transitioned into other departments.
+              transaction, blended across both the automated path and the work that escalates to a human.
+            </p>
+            <p style="margin-top: 10px;">
+              The dedicated review team went from <strong>10 reviewers to 5</strong>. That is review capacity
+              redeployed, not payroll removed — the other five moved into other departments.
             </p>
           </div>
 
@@ -1211,9 +1227,10 @@
           <div class="case-cell">
             <div class="case-k">Results</div>
             <p>
-              The commercial AMS this replaced charged roughly <strong>$80 per user per month</strong>. At
-              today's 650 users, that rate implies about <strong>$620,000 a year</strong> in licensing —
-              gross, before netting what the platform costs to build and run in-house.
+              Commercial agency management systems license per seat, per month. At 650 users that line runs
+              <strong>well into six figures a year</strong> — gross, before netting what the platform costs
+              to build and run in-house. Exact per-seat rates move over time, so the magnitude is the
+              honest claim, not a quoted figure.
             </p>
             <p style="margin-top: 10px;">
               The licensing figure is the easy half of the comparison. The harder half is that owning the
@@ -1242,7 +1259,7 @@
 
       <div class="projects-grid">
         <div class="project-card span-2 reveal reveal-delay-1">
-          <p class="project-year">2026 — Present</p>
+          <p class="project-year">2026<span class="project-active">Active</span></p>
           <h3 class="project-name">AI-Enabled Document Review</h3>
           <p class="project-desc">Reviews roughly 15,000 insurance servicing documents a month against carrier rules — multimodal analysis into a structured 50+ item checklist, then deterministic business rules. About 85% clear automatically; the rest route to a human by confidence. Processing time went from ~7 minutes to ~2.</p>
           <div class="project-tags">
@@ -1251,7 +1268,7 @@
         </div>
 
         <div class="project-card reveal reveal-delay-2">
-          <p class="project-year">2014 — Present</p>
+          <p class="project-year">2014<span class="project-active">Active</span></p>
           <h3 class="project-name">iBinderbook</h3>
           <p class="project-desc">Custom agency management and CRM platform unifying policy workflows, lead tracking, commission logic, and automation into a single system of record.</p>
           <div class="project-tags">
