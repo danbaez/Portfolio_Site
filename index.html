@@ -540,6 +540,15 @@
     .flow-diagram {
       margin: 12px 0 4px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    /* Below the diagram's minimum width it side-scrolls; say so rather than
+       letting it look clipped. */
+    .flow-hint {
+      display: none;
+      font-size: 11px;
+      color: var(--text-3);
+      margin: 2px 0 10px;
     }
     .flow-diagram svg {
       display: block;
@@ -553,6 +562,7 @@
     .fd-v     { fill: var(--text-3); font-size: 9.5px; font-weight: 500; }
     .fd-a     { fill: var(--accent); font-size: 10px; font-weight: 700; }
     .fd-rail  { stroke: var(--text-3); stroke-width: 1; fill: none; }
+    .fd-dash  { stroke: var(--text-3); stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
     .fd-head  { fill: var(--text-3); }
 
     /* Pipeline detail — numbered steps joined by a connector rail. */
@@ -882,6 +892,7 @@
       .contact-row     { flex-wrap: wrap; }
       .projects-grid   { grid-template-columns: 1fr; }
       .skills-grid     { grid-template-columns: 1fr; }
+      .flow-hint       { display: block; }
       .case-grid       { grid-template-columns: 1fr; }
       .stats           { grid-template-columns: 1fr; }
       .hero h1         { letter-spacing: -1px; }
@@ -1020,42 +1031,47 @@
           <div class="case-cell wide">
             <div class="case-k">Architecture</div>
             <div class="flow-diagram">
-              <svg viewBox="0 0 660 112" role="img" aria-labelledby="fd-t fd-d">
+              <svg viewBox="0 0 660 140" role="img" aria-labelledby="fd-t fd-d">
     <title id="fd-t">Document review pipeline</title>
-    <desc id="fd-d">A policy document arrives as a PDF or image, is read by a multimodal model, grounded against the relevant carrier's rules, structured into a 50-plus item JSON checklist, and evaluated by deterministic business rules. The result is then routed by confidence: roughly 85 percent clear automatically and the remainder go to human review.</desc>
-    <rect class="fd-box" x="1" y="40" width="92" height="50" rx="5"/>
-    <text class="fd-k" x="47" y="62" text-anchor="middle">Intake</text>
-    <text class="fd-v" x="47" y="76" text-anchor="middle">PDF / image</text>
-    <path class="fd-rail" d="M94 65 H100"/>
-    <polygon class="fd-head" points="100,62 105,65 100,68"/>
-    <rect class="fd-box" x="105" y="40" width="92" height="50" rx="5"/>
-    <text class="fd-k" x="151" y="62" text-anchor="middle">Analyze</text>
-    <text class="fd-v" x="151" y="76" text-anchor="middle">multimodal</text>
-    <path class="fd-rail" d="M198 65 H204"/>
-    <polygon class="fd-head" points="204,62 209,65 204,68"/>
-    <rect class="fd-box" x="209" y="40" width="92" height="50" rx="5"/>
-    <text class="fd-k" x="255" y="62" text-anchor="middle">Ground</text>
-    <text class="fd-v" x="255" y="76" text-anchor="middle">carrier rules</text>
-    <path class="fd-rail" d="M302 65 H308"/>
-    <polygon class="fd-head" points="308,62 313,65 308,68"/>
-    <rect class="fd-box" x="313" y="40" width="92" height="50" rx="5"/>
-    <text class="fd-k" x="359" y="62" text-anchor="middle">Structure</text>
-    <text class="fd-v" x="359" y="76" text-anchor="middle">50+ item JSON</text>
-    <path class="fd-rail" d="M406 65 H412"/>
-    <polygon class="fd-head" points="412,62 417,65 412,68"/>
-    <rect class="fd-box" x="417" y="40" width="92" height="50" rx="5"/>
-    <text class="fd-k" x="463" y="62" text-anchor="middle">Evaluate</text>
-    <text class="fd-v" x="463" y="76" text-anchor="middle">business rules</text>
-    <path class="fd-rail" d="M510 65 H525"/>
-    <path class="fd-rail" d="M525 65 V44 H531"/>
-    <path class="fd-rail" d="M525 65 V86 H531"/>
-    <polygon class="fd-head" points="531,41 536,44 531,47"/>
-    <polygon class="fd-head" points="531,83 536,86 531,89"/>
-    <text class="fd-a" x="541" y="48">~85% automatic</text>
-    <text class="fd-k" x="541" y="90">Human review</text>
-    <text class="fd-v" x="523" y="106" text-anchor="middle">by confidence</text>
+    <desc id="fd-d">A policy document arrives as a PDF or image, is read by a multimodal model, grounded against the relevant carrier's rules, structured into a 50-plus item JSON checklist, and evaluated by deterministic business rules. The result is routed by confidence: roughly 85 percent clear automatically and the remainder go to human review. A randomised sample of the automatically cleared work is also sent to human review as quality control, so the pipeline is measured on work it thought it got right.</desc>
+    <rect class="fd-box" x="1" y="45" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="47" y="67" text-anchor="middle">Intake</text>
+    <text class="fd-v" x="47" y="81" text-anchor="middle">PDF / image</text>
+    <path class="fd-rail" d="M94 70 H100"/>
+    <polygon class="fd-head" points="100,67 105,70 100,73"/>
+    <rect class="fd-box" x="105" y="45" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="151" y="67" text-anchor="middle">Analyze</text>
+    <text class="fd-v" x="151" y="81" text-anchor="middle">multimodal</text>
+    <path class="fd-rail" d="M198 70 H204"/>
+    <polygon class="fd-head" points="204,67 209,70 204,73"/>
+    <rect class="fd-box" x="209" y="45" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="255" y="67" text-anchor="middle">Ground</text>
+    <text class="fd-v" x="255" y="81" text-anchor="middle">carrier rules</text>
+    <path class="fd-rail" d="M302 70 H308"/>
+    <polygon class="fd-head" points="308,67 313,70 308,73"/>
+    <rect class="fd-box" x="313" y="45" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="359" y="67" text-anchor="middle">Structure</text>
+    <text class="fd-v" x="359" y="81" text-anchor="middle">50+ item JSON</text>
+    <path class="fd-rail" d="M406 70 H412"/>
+    <polygon class="fd-head" points="412,67 417,70 412,73"/>
+    <rect class="fd-box" x="417" y="45" width="92" height="50" rx="5"/>
+    <text class="fd-k" x="463" y="67" text-anchor="middle">Evaluate</text>
+    <text class="fd-v" x="463" y="81" text-anchor="middle">business rules</text>
+    <path class="fd-rail" d="M510 70 H524"/>
+    <path class="fd-rail" d="M524 70 V30 H531"/>
+    <path class="fd-rail" d="M524 70 V110 H531"/>
+    <polygon class="fd-head" points="531,27 536,30 531,33"/>
+    <polygon class="fd-head" points="531,107 536,110 531,113"/>
+    <rect class="fd-box-a" x="536" y="15" width="112" height="30" rx="5"/>
+    <text class="fd-a" x="592" y="34" text-anchor="middle">~85% automatic</text>
+    <rect class="fd-box" x="536" y="95" width="112" height="30" rx="5"/>
+    <text class="fd-k" x="592" y="114" text-anchor="middle">Human review</text>
+    <path class="fd-dash" d="M592 45 V89"/>
+    <polygon class="fd-head" points="589,89 592,94 595,89"/>
+    <text class="fd-v" x="584" y="74" text-anchor="end">QC sample</text>
               </svg>
             </div>
+            <p class="flow-hint">Scroll the diagram sideways to see the full pipeline →</p>
             <div class="flow">
               <div class="flow-step">
                 <span class="flow-n">1</span>
@@ -1195,11 +1211,15 @@
           <div class="case-cell">
             <div class="case-k">Results</div>
             <p>
-              Replacing it with a comparable commercial agency management system would cost roughly
-              <strong>$620,000 a year</strong> in licensing at current headcount — about $80 per seat per
-              month across 650 seats, before agency fees. That is the recurring cost the build decision
-              avoids, every year, and it buys workflows shaped to this agency rather than to a vendor's
-              assumptions about it.
+              The commercial AMS this replaced charged roughly <strong>$80 per user per month</strong>. At
+              today's 650 users, that rate implies about <strong>$620,000 a year</strong> in licensing —
+              gross, before netting what the platform costs to build and run in-house.
+            </p>
+            <p style="margin-top: 10px;">
+              The licensing figure is the easy half of the comparison. The harder half is that owning the
+              product means the policy, commission, and servicing workflows match how this agency actually
+              operates, rather than how a vendor assumes it does — which is the reason the build decision
+              held for twelve years, not the line item.
             </p>
           </div>
 
@@ -1231,6 +1251,15 @@
         </div>
 
         <div class="project-card reveal reveal-delay-2">
+          <p class="project-year">2014 — Present</p>
+          <h3 class="project-name">iBinderbook</h3>
+          <p class="project-desc">Custom agency management and CRM platform unifying policy workflows, lead tracking, commission logic, and automation into a single system of record.</p>
+          <div class="project-tags">
+            <span class="tag">CRM</span><span class="tag">Automation</span><span class="tag">Insurance</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
           <p class="project-year">2026</p>
           <h3 class="project-name">AI Voice Training Platform</h3>
           <p class="project-desc">Scenario-based employee training. Trainers define customer personas, emotional state, difficulty, behavioral rules, and success criteria; trainees hold real-time voice conversations with the simulated customer, then get AI scoring, pass/fail, strengths and weaknesses, and a persistent session history.</p>
@@ -1239,7 +1268,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal reveal-delay-2">
+        <div class="project-card reveal reveal-delay-3">
           <p class="project-year">2023</p>
           <h3 class="project-name">Dealer Verification Platform</h3>
           <p class="project-desc">A platform I architected and own, supporting dealership employees across approximately 30 dealerships. Tracks lead status and routes insurance opportunities generated through dealership workflows.</p>
@@ -1254,15 +1283,6 @@
           <p class="project-desc">API-driven communications built on Twilio and integrated directly into the CRM platform — voice calls, SMS, automated messaging, IVRs, number management, and application-driven communication workflows.</p>
           <div class="project-tags">
             <span class="tag">Twilio</span><span class="tag">Voice &amp; SMS</span><span class="tag">Integrations</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-3">
-          <p class="project-year">2014 — Present</p>
-          <h3 class="project-name">iBinderbook</h3>
-          <p class="project-desc">Custom agency management and CRM platform unifying policy workflows, lead tracking, commission logic, and automation into a single system of record.</p>
-          <div class="project-tags">
-            <span class="tag">CRM</span><span class="tag">Automation</span><span class="tag">Insurance</span>
           </div>
         </div>
       </div>
