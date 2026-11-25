@@ -719,6 +719,30 @@
     }
 
     /* ═══════════════════════════════════════════
+       LAB — personal products, kept visually
+       subordinate to the professional Projects grid
+    ═══════════════════════════════════════════ */
+    .lab-intro {
+      font-size: 13.5px;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin: -18px 0 20px;
+    }
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      margin-top: 16px;
+    }
+    .project-links a {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      transition: opacity 0.2s;
+    }
+    .project-links a:hover { opacity: 0.7; }
+
+    /* ═══════════════════════════════════════════
        TIMELINE
     ═══════════════════════════════════════════ */
     .timeline { display: flex; flex-direction: column; }
@@ -993,8 +1017,8 @@
         <p class="reveal reveal-delay-3">
           Outside of work I run <a href="https://pirabits.com" target="_blank" rel="noopener">pirabits.com</a>,
           my personal experimental lab — a space for exploring AI, emerging technologies, and creative ideas
-          outside the constraints of production systems. It's where I build and test without every idea
-          needing to become a product.
+          outside the constraints of production systems. Most ideas there stay experiments; the ones that
+          hold up ship as open-source tools, starting with <a href="https://lupax.app" target="_blank" rel="noopener">LupaX</a>.
         </p>
       </div>
 
@@ -1309,6 +1333,35 @@
 
     </section>
 
+    <!-- ══════════════════════════════ LAB ══════════════════════════════ -->
+    <!-- Not linked in the nav on purpose: the spy keeps Work lit through here. -->
+    <section aria-label="Lab">
+      <p class="label reveal">Lab · Pirabits</p>
+      <p class="lab-intro reveal">Personal work, separate from the roles above: open-source tools I build on my own time.</p>
+
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1">
+          <p class="project-year">2026</p>
+          <h3 class="project-name">LupaX</h3>
+          <p class="project-desc">Chrome extension for capturing and inspecting web pages: screenshots and screen recording, CSS and design-token inspection, asset export, and accessibility checks. Manifest V3, no build step, covered by unit and end-to-end tests.</p>
+          <div class="project-links">
+            <a href="https://chromewebstore.google.com/detail/lupax-%E2%80%94-css-inspector-scr/hbbpbgakpjkikhgmmabnpmgikfjlhihj" target="_blank" rel="noopener">Chrome Web Store</a>
+            <a href="https://lupax.app" target="_blank" rel="noopener">lupax.app</a>
+            <a href="https://github.com/Pirabits/lupax" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <p class="project-year">2026</p>
+          <h3 class="project-name">session-panel</h3>
+          <p class="project-desc">Side panel for the Claude Code CLI that shows the session at a glance: context use, usage limits, loaded MCP servers, files written, and git and pull-request state. Installs as a plugin.</p>
+          <div class="project-links">
+            <a href="https://github.com/danbaez/session-panel" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ══════════════════════════════ RESUME ══════════════════════════════ -->
     <section class="scroll-section" id="resume" aria-label="Experience">
       <p class="label reveal">Experience</p>
@@ -1497,8 +1550,8 @@
 
       <div class="contact-row reveal reveal-delay-3">
         <span class="contact-key">Lab</span>
-        <span class="contact-val">github.com/danbaez &nbsp;·&nbsp; experiments</span>
-        <a href="https://github.com/danbaez" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-val">github.com/Pirabits &nbsp;·&nbsp; open source</span>
+        <a href="https://github.com/Pirabits" target="_blank" rel="noopener" class="contact-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
           </svg>
